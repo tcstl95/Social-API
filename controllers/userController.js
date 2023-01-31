@@ -45,7 +45,7 @@ const userControl = {
             res.status(400).json(err);
         });
     },
-    // create user
+
     createUser({body}, res) {
         User.create(body)
         .then(user => res.json(dbUser))
@@ -64,7 +64,7 @@ const userControl = {
     },
     deleteUser({params}, res) {
         User.findOneAndDelete({_id: params.id})
-        .then(user => {
+        .then(dbUser => {
             if(!dbUser) {
                 res.status(404).json({message: 'No user found with this id!'});
                 return;
@@ -78,7 +78,12 @@ const userControl = {
             {_id: params.id},
             {$push: {friends: params.friendId}},
             {new: true, runValidators: true}
+         
         )
+        .populate({
+            path: 'friends',
+            select: '-__v'
+        })
         .then(dbUser => {
             if(!dbUser) {
                 res.status(404).json({message: 'No user found with this id!'});
@@ -93,7 +98,12 @@ const userControl = {
             {_id: params.id},
             {$pull: {friends: params.friendId}},
             {new: true}
+            
         )
+        .populate({
+            path: 'friends',
+            select: '-__v'
+        })
         .then(dbUser => {
             if(!dbUser) {
                 res.status(404).json({message: 'No user found with this id!'});

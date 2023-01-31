@@ -19,13 +19,13 @@ router
     .route('/:id')
     .get(getUserById)
     .put(updateUserId)
-    .delete(deleteUser)
+    .delete(deleteUser);
 
 
 router
     .route('/:userId/friends/:friendId')
     .post(addFriend)
-    .delete(deleteFriend)
+    .delete(deleteFriend);
 
 
 module.exports = router;
