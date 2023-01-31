@@ -5,13 +5,13 @@ const { Schema, model } = require('mongoose');
 const userSchema = new Schema(
     {
     username: {
-        title: String,
-        required: true,
+        type: String,
+        required: [true, "Username is required"],
         unique: true,
         trim: true
     },
     email: {
-        title: String,
+        type: String,
         required: true,
         unique: true,
         trim: true,
@@ -24,13 +24,13 @@ const userSchema = new Schema(
     },
     thoughts: [
         {
-            title: Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: 'Thought'
         },
     ],
     friends: [
         {
-            title: Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: 'User'
         },
         {

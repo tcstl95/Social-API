@@ -3,7 +3,7 @@ const {
     getAllUser,
     getUserById,
     createUser,
-    updateUser,
+    updateUserId,
     deleteUser,
     addFriend,
     deleteFriend
@@ -18,14 +18,14 @@ router
 router
     .route('/:id')
     .get(getUserById)
-    .put(updateUser)
-    .delete(deleteUser);
+    .put(updateUserId)
+    .delete(deleteUser)
 
 
 router
     .route('/:userId/friends/:friendId')
     .post(addFriend)
-    .delete(deleteFriend);
+    .delete(deleteFriend)
 
 
 module.exports = router;

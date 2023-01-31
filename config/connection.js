@@ -1,4 +1,4 @@
-// const {connect, connection} = require('mongoose');
+const {connect, connection} = require('mongoose');
 
-// connect( 'mongodb://localhost/social-network-api', )
+connect( 'mongodb://localhost/Social-API', )
     
