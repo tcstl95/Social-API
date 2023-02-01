@@ -8,12 +8,13 @@ const {
     addReaction,
     deleteReaction
 } = require('../../controllers/thoughtController');
+// referencing controllers//
 
 
 router.route('/').get(getAllThought);
 
 
-//
+//establishing api routes//
 router.route('/:id').get(getThoughtById).put(updateThought).delete(deleteThought);
 
 router.route('/:userId').post(createThought);

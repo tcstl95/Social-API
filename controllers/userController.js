@@ -1,8 +1,6 @@
 const {User} = require('../models/');
 
-
-
-
+// 
 const userControl = {
     getAllUser(req, res) {
         User.find({})
