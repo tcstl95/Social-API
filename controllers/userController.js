@@ -1,4 +1,5 @@
-const User = require('../models/');
+const {User} = require('../models/');
+
 
 
 
@@ -33,7 +34,7 @@ const userControl = {
             select: '-__v'
         })
         .select('-__v')
-        .then(user=> {
+        .then(dbUser=> {
             if(!dbUser) {
                 res.status(404).json({message: 'No user found with this id!'});
                 return;
@@ -48,7 +49,7 @@ const userControl = {
 
     createUser({body}, res) {
         User.create(body)
-        .then(user => res.json(dbUser))
+        .then(dbUser => res.json(dbUser))
         .catch(err => res.status(400).json(err));
     },
     updateUserId({params, body}, res) {
