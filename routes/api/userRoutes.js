@@ -8,7 +8,9 @@ const {
     addFriend,
     deleteFriend
 } = require('../../controllers/userController');
+//referencing user controllers//
 
+//establishing api routes//
 router
     .route('/')
     .get(getAllUser)

@@ -1,6 +1,7 @@
+//Importing user model//
 const {User} = require('../models/');
 
-// 
+// create the user controller//
 const userControl = {
     getAllUser(req, res) {
         User.find({})
